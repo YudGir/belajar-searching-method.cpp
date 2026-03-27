@@ -15,6 +15,7 @@
 //     for (int i = 0; i < banyakElemenArrayData; i++) {
 //         if (data[i] == angkaUserYangDicari) {
 //             indeks = i;
+//             break;
 //         }
 //     }
 
@@ -30,26 +31,23 @@ using namespace std;
 
 int main () {
     int data[] = {1,2,3,4,5};
-    int JumlahElemen = 5, i = 0;
+    int JumlahElemenArray = 5, i = 0;
     int angkaUserYangDicari; 
 
     cout << "Hi!\n";
     cout << "Mau cari angka berapa dari array? ";
     cin >> angkaUserYangDicari;
 
-    int angkaTerakhir = data[JumlahElemen - 1]; //inisialisasi elemen akhir array = posisi array di paling ujung
-    data[JumlahElemen - 1] = angkaUserYangDicari; //inisialisasi nilai di ujung array adalah angka yg user cari
+    int angkaTerakhir = data[JumlahElemenArray - 1]; //inisialisasi elemen akhir array = posisi array di paling ujung
+    data[JumlahElemenArray - 1] = angkaUserYangDicari; //inisialisasi nilai di ujung array adalah angka yg user cari
 
-    while (data[i] != angkaUserYangDicari) {
+    while (data[i] != angkaUserYangDicari) 
         i++; //terus ulangi while-iteration sampai data[i] = angka user yg diinginkan utk dicari
-    }
 
-    data[JumlahElemen - 1] = angkaTerakhir; //buat ngembaliin nilai array paling terakhir menjadi semestinya
+    data[JumlahElemenArray - 1] = angkaTerakhir; //buat ngembaliin nilai array paling terakhir menjadi semestinya
 
-    if (i < JumlahElemen - 1)   
+    if (i < JumlahElemenArray - 1 || data[JumlahElemenArray - 1] == angkaUserYangDicari) 
         cout << "mantap, ketemu brok di indeks ke- " << i << ". (AI, Asli Itu) HAHA\n";
-    else if (data[JumlahElemen - 1] == angkaUserYangDicari)
-        cout << "ketemu sih, tapi si Sentinel-nya bro!\n";
     else 
-        cout << "yah, ga ketemu brok!\n";
+        cout << "yah, ga ketemu brok! (cuman adanya di paling ujung)\n";
 }
