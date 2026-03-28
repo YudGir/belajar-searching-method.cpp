@@ -9,8 +9,12 @@ struct Tim {
 } t[3];
 
 int FungsiRekursifSkorTertinggi (int jumlahTim) {
-    if (t[jumlahTim].skor > t[jumlahTim - 1].skor) return t[jumlahTim].skor;
-    return FungsiRekursifSkorTertinggi(jumlahTim - 1);
+    if (jumlahTim == 1) return t[0].skor;
+
+    int tertinggiSebelumnya = FungsiRekursifSkorTertinggi(jumlahTim - 1);
+
+    if (t[jumlahTim - 1].skor > tertinggiSebelumnya) return t[jumlahTim - 1].skor;
+    else return tertinggiSebelumnya;
 }
 
 int main () {
@@ -42,6 +46,4 @@ int main () {
     
     int hasilAkhir = FungsiRekursifSkorTertinggi(banyakTim);
     cout << "Skor tertinggi dalam turnamen ini adalah: " << hasilAkhir;
-
-
 }
